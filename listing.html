@@ -1,0 +1,323 @@
+<doctype html>
+  <html>
+
+  <body>
+
+    <head>
+      <script src="/confetti.browser.min.js"></script>
+      <link src="css2.css" rel="stylesheet">
+      <style>
+        html {
+  text-align: center;
+
+  background-image: url('data:image/svg+xml,%3Csvg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z" fill="%239C92AC" fill-opacity="0.4" fill-rule="evenodd"/%3E%3C/svg%3E');
+}
+
+h1 {
+  font-family: "Courier Prime", serif;
+  font-size: 48px;
+  text-shadow: 4px 4px 4px #aaa;
+}
+
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.confettiCanvas {
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+      </style>
+      <script>
+        function startGame() {
+    document.getElementById("demo").innerHTML = "Restart Game (all progress will be lost!)";
+  
+  var listCompany = confirm(
+    "You come across a search result advertising listing services on the Toronto Stock Exchange. Do you want to click on it?"
+  );
+
+  if (listCompany == true) {
+    
+    var techCompany = prompt(
+      "You click on the ad. Do you want to play as a Technology Company or a Mining Company? Type 'tech' for Technology or 'mining' for Mining Company."
+    );
+    if (techCompany == "tech") {
+      var preRegisterPaymentMethodTech = prompt(
+        "You decide to pre-register online as a Tech Company. A pop-up window appears. It asks you to pay via cash for the $7500 registration fee and send it to a mysterious address. Do you pay the money? Type 'yes' to pay and type 'no' to email the TSX Company Relations office and check-in to make sure that it is legitimate."
+      );
+
+      if (preRegisterPaymentMethodTech == "yes") {
+        alert(
+          "You drive over to the building. It looks extremely run-down, with trash everywhere and billowing smoke clouds. You decide to go into the building anyways. At first, you don't see anyone inside, and before you know it, you hear somebody approaching fron the back. They ask for the money. The person isn't wearing an official TSX uniform, but you decide to trust them anyways. However, it was a bad decision, as you got scammed. | GAME OVER | Want to play again? Tap Control/Command + R on your keyboard."
+        );
+      }
+
+      if (preRegisterPaymentMethodTech == "no") {
+        var preBuiltOrBuildYourself = prompt(
+          "You email the Company Relations Office. Apparently, it was a notorious scam. Thankfullly you didn't go to the location! Whew! The Company Relations Office also tells you the next step for your application: you need 10 million dollars in built-up equity in order to list on the main exchange, but only 1 million for the Venture Exchange (aimed at developing companies). The staff member there also notifies you that it's allowed to buy a 'pre-built' (commonly referred to as 'pre-registered') company to speed up the process of listing on the main exchange. Do you choose to purchase a pre-built company, or slowly built equity in your own? Type 'pre' for a pre-built company or 'build' to build your own company."
+        );
+
+        if (preBuiltOrBuildYourself == "pre") {
+          alert(
+            "You decide to search up a pre-built company. You find an address, and go to a sleek, clean building. You walk in the doors and speak with one of the staff. Unfortunately, you cannot afford the fee of 2 million dollars for the pre-built company."
+          );
+          alert(
+            "You try to get a buisness loan from your bank, but your credit score is too low. All that remains now is a loan shark."
+          );
+          alert("You pay 1000 dollars first as a down-payment.");
+          alert(
+            "Unfortunately, a month later, with all the interest racked up, you can't afford to pay off the loan. You try to get an extension from the loan shark, but they end up killng you. | GAME OVER | Want to play again? Tap Control/Command + R on your keyboard."
+          );
+        }
+
+        if (preBuiltOrBuildYourself == "build") {
+          var buildTheCompanySinceYouAreSmart = prompt(
+            "You decide to build up equity yourself. Over a couple of years, you finally meet the requirement of 1 million in equity. Now, the only decision you need to make is your initial price you are offering your stock for. You are offered advice from a financial consultant, and she says that you can either list at 50 dollars per share or 125. What do you choose? Type '50' if you choose 50 dollars or '125' if you choose 125. "
+          );
+
+          if (buildTheCompanySinceYouAreSmart == "50") {
+            // do this for 30 seconds
+var duration = 30 * 1000;
+var end = Date.now() + duration;
+
+(function frame() {
+  // launch a few confetti from the left edge
+  confetti({
+    particleCount: 7,
+    angle: 60,
+    spread: 55,
+    origin: { x: 0 }
+  });
+  // and launch a few from the right edge
+  confetti({
+    particleCount: 7,
+    angle: 120,
+    spread: 55,
+    origin: { x: 1 }
+  });
+
+  // keep going until we are out of time
+  if (Date.now() < end) {
+    requestAnimationFrame(frame);
+  }
+}());
+            alert(
+              "You choose 50 dollars as your initial offering price. Your company stock grows, and you get needed funding. Congratulations! You've successfully navigated the process of listing your company on the Toronto Stock Exchange. Give yourself a pat on the back! | GAME COMPLETED | Do you want to try again and see if you can find another solution? Tap Control/Command + R on your keyboard."
+            );
+          }
+
+          if (buildTheCompanySinceYouAreSmart == "125") {
+            alert(
+              "Unfortunately, your listed company does not take off. You start to wonder if it's related to the high starting price. | GAME OVER | Want to play again? Tap Control/Command + R on your keyboard."
+            );
+          }
+        }
+      }
+    }
+    if (techCompany == "mining") {
+      var miningCompanyChooseGetFundingUseLoanSharkOrBankLoanOrGiveUp = prompt(
+        "You decide to open up a mining company. The requirements are pretty lax, but you do need to pay the 7500 dollars in listing fees and 500,000 dollars in required equity for your new company. There are multiple choices avalible for you to do this: you can slowly build up funding yourself by running the company, use a loan shark, or get a loan from your bank. Loan sharks often offer shorter periods where you can return the money, and higher amounts, while banks are a safer option but will take you a long time to get the money. What do you choose? Type 'run' to slowly build the company, 'shark' to use a loan shark, and 'bank' to go through a loan with your bank."
+      );
+
+      if (
+        miningCompanyChooseGetFundingUseLoanSharkOrBankLoanOrGiveUp == "run"
+      ) {
+        var priceForIPO = prompt(
+          "You decide to slowly build up equity, and it was the right decision. A year later, you're ready to list and have been given the go-ahead by the TSX Company Relations office. Now, the only decision left is what price you'll be listing at. Do you list at 25 dollars, or 75? Type '25' for 25 dollars and '75' for 75 dollars."
+        );
+
+        if ((priceForIPO = "25")) {
+          // do this for 30 seconds
+var duration = 30 * 1000;
+var end = Date.now() + duration;
+
+(function frame() {
+  // launch a few confetti from the left edge
+  confetti({
+    particleCount: 7,
+    angle: 60,
+    spread: 55,
+    origin: { x: 0 }
+  });
+  // and launch a few from the right edge
+  confetti({
+    particleCount: 7,
+    angle: 120,
+    spread: 55,
+    origin: { x: 1 }
+  });
+
+  // keep going until we are out of time
+  if (Date.now() < end) {
+    requestAnimationFrame(frame);
+  }
+}());
+          alert(
+            "You list at a starting price of 25 dollars. A few years later, your company is booming, and the stock is continuously rising. Congratulations! You've successfully navigated the process of listing your company on the Toronto Stock Exchange. Give yourself a pat on the back! | GAME COMPLETED | Do you want to try again and see if you can find another solution? Tap Control/Command + R on your keyboard."
+          );
+        }
+
+        if ((priceForIPO = "75")) {
+          // do this for 30 seconds
+var duration = 30 * 1000;
+var end = Date.now() + duration;
+
+(function frame() {
+  // launch a few confetti from the left edge
+  confetti({
+    particleCount: 7,
+    angle: 60,
+    spread: 55,
+    origin: { x: 0 }
+  });
+  // and launch a few from the right edge
+  confetti({
+    particleCount: 7,
+    angle: 120,
+    spread: 55,
+    origin: { x: 1 }
+  });
+
+  // keep going until we are out of time
+  if (Date.now() < end) {
+    requestAnimationFrame(frame);
+  }
+}());
+          alert(
+            "You list at a starting price of 75 dollars. Your stock and company grows a bit, but it does not grow majorly. | GAME COMPLETED | You ended up at a unpreffered solution. Do you want to try again and see if you can find another solution? Tap Control/Command + R on your keyboard."
+          );
+        }
+      }
+
+      if (
+        miningCompanyChooseGetFundingUseLoanSharkOrBankLoanOrGiveUp == "shark"
+      ) {
+        alert(
+          "You decide to use a loan shark. You search about it on the Dark Web, and get an address."
+        );
+        alert("You drive your car to that address.");
+        alert(
+          "The building is very run-down, dirty and looks look it's about to fall down."
+        );
+        alert(
+          "You pay 1000 dollars first as a down-payment, and, with the money, drive home."
+        );
+        alert(
+          "Unfortunately, a month later, with all the interest racked up, you can't afford to pay off the loan. You try to get an extension from the loan shark, but they end up killng you. | GAME OVER | Want to play again? Tap Control/Command + R on your keyboard."
+        );
+      }
+
+      if (
+        miningCompanyChooseGetFundingUseLoanSharkOrBankLoanOrGiveUp == "bank"
+      ) {
+        alert(
+          "You decide to go to your local bank and ask for a buisness loan."
+        );
+        alert(
+          "Unfortunately, you credit score is too low, so they do not give you the loan. | GAME OVER | Want to play again? Tap Control/Command + R on your keyboard. "
+        );
+      }
+    }
+  } else {
+    alert(
+      "You decide to not react. Deep, deep inside, you feel a sense of dread, and have a feeling that you missed on an opportunity. Want to play again? Tap Control/Command + R on your keyboard."
+    );
+  }
+}
+
+
+
+      </script>
+    </head>
+    <h1>Listing on the TSX: A Choose your Own Adventure Game</h1>
+    <button class="glow-on-hover" type="button" onclick="startGame()">Start Game</button>
+      <button class="glow-on-hover" type="button" onclick="/index">Back to Home</button>
+    </div>
+  </body>
+
+  </html>
+
+
+
+
+
+
