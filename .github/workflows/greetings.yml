@@ -9,5 +9,5 @@ jobs:
     - uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: 'Hi there! This is mainly a private project. I am not currently accepting pull requests, but feel free to ask any questions in Issues. '
-        pr-message: 'Hi there! This is mainly a private project. I am not currently accepting pull requests, but feel free to ask any questions in Issues.'
+        issue-message: 'Hi there! This is mainly a private project. I am not currently accepting pull requests, please feel free to just ignore this repository :) '
+        pr-message: 'Hi there! This is mainly a private project. I am not currently accepting pull requests, I am not currently accepting pull requests, please feel free to just ignore this repository :)'
