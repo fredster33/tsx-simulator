@@ -16,7 +16,14 @@
         var TogetherJSConfig_siteName = "TSX Simulator";
 var TogetherJSConfig_toolName = "Online Multiplayer"
       </script>
-
+ <script>
+    function getRandom(){
+var RandomNumber1 = Math.floor(Math.random() * 6) + 1;
+    
+var resultDiv = document.getElementById('result');
+resultDiv.innerHTML = '<img src="dice' + RandomNumber1 + '.png">';
+}
+</script>
 <link rel="stylesheet" type="text/css" href="css2.css">
       <style>
         html {
@@ -124,7 +131,11 @@ h1 {
     <button onclick="TogetherJS(this); return false;" class="glow-on-hover">Online Multiplayer</button>
     </br>
     </br>
-    
+    <input type="button" value="Throw Die" onClick="getRandom()" class="glow-on-hover">
+    <div id="result">
+    </div>
+	</br>
+</br>
     <img src="example.com"></img>
 
     </br>
